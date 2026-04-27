@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minie Co.</title>
+    <link rel="stylesheet" href="cyay.css">
+</head>
+<body>
+
+    <header>
+        <h1>Minie Co.</h1>
+        <p>minicooool!</p>
+        <nav>
+        <a onclick="showView('shop-view')">Shop</a>
+        <a href="#pony-section" onclick="showView('shop-view')">Pony</a>
+        <a href="#stationary-section" onclick="showView('shop-view')">Stationary</a>
+        <a href="#percy-section" onclick="showView('shop-view')">Percy Jackson</a>
+        <a href="#bakery-section" onclick="showView('shop-view')">Bakery</a> 
+        <a href="#cart-section" onclick="showView('shop-view')">Cart</a>
+        <a onclick="showView('about-view')">About Us</a>
+        </nav>
+    </header>
+
+    <main id="shop-view">
+        <section>
+            <h2>Minie Co's Specials!</h2>
+            <div class="category" id="pony-section"><h3>My Little Pony</h3><div class="product-grid" id="cat1"></div></div>
+            <div class="category" id="stationary-section"><h3>Kolleen's Stationary Store</h3><div class="product-grid" id="cat2"></div></div>
+            <div class="category" id="percy-section"><h3>Percy jackson things</h3><div class="product-grid" id="cat3"></div></div>
+            <div class="category" id="bakery-section"><h3>Zoe's Bakery</h3><div class="product-grid" id="cat4"></div></div>
+        <section id="cart-section">
+
+            <h2>Your Friendship Cart</h2>
+            <div id="cart-display">
+                <ul id="cart-items"></ul>
+                <p><strong>Total: P<span id="total-price">0</span></strong></p>
+            </div>
+
+            <form id="checkout-form" action="http://52.74.133.173/cs3/checkout.php" method="POST" onsubmit="prepareOrder()">
+    
+                <h3>Delivery Details</h3>
+    
+                <input type="text" name="cust_name" placeholder="Full Name" required>
+                <input type="text" name="cust_addr" placeholder="Address" required>
+                <input type="email" name="cust_email" placeholder="Email Address" required>
+                <input type="hidden" name="cust_order" id="cust_order_input">
+                <button type="submit">Checkout via Magic</button>
+
+            </form>
+        </section>
+    </main>
+
+    <main id="about-view" class="hidden">
+    <section>
+        <h2>About Minie Co.</h2>
+        <div class="about-container">
+            <div class="product-card">
+                <img src="https://iili.io/BPxSqUN.jpg" alt="Member 1" style="width: 100px; height: 100px; border-radius: 50%;">
+                <h3>Zoe Ty</h3>
+                <p>Coderr and Designerr (also co-owner of Minie Co!!!)</p>
+            </div>
+            <div class="product-card">
+                <img src="https://iili.io/BPoQzUG.jpg" alt="Member 2" style="width: 100px; height: 100px; border-radius: 50%;">
+                <h3>Kolleen Lacson</h3>
+                <p>Researcher and coderrr (also co-owner of Minie Co!!!)</p>
+            </div>
+            <div class="product-card">
+                <img src="https://iili.io/BPxkp1V.jpg" alt="Member 3" style="width: 100px; height: 100px; border-radius: 50%;">
+                <h3>Ishbelle Ong</h3>
+                <p>Researceherr (alsoo co-owner of Minie Co!!!)</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <div id="qty-modal" class="hidden">
+        <div class="modal-content">
+            <h3>How many?</h3>
+            <input type="number" id="qty-input" value="1" min="1">
+            <br><br>
+            <button onclick="confirmAddToCart()">Confirm</button>
+            <button onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <script src="cyay.js"></script>
+</body>
+</html>
